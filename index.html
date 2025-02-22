@@ -1,0 +1,73 @@
+﻿Review Page Code
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave a Review - Dr. Mohindru's Dental Care</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .review-box {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 20px auto;
+            width: 80%;
+            background-color: #f9f9f9;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Share Your Experience</h1>
+    <p>Thank you for visiting Dr. Mohindru's Medical & Dental Care! Please leave us a review to help others.</p>
+   
+    <div class="review-box" id="review-box">
+        <p id="review-text"></p>
+    </div>
+   
+    <button onclick="copyReview()">Copy Review</button>
+    <button onclick="redirectToGoogle()">Post on Google</button>
+   
+    <script>
+        const reviews = [
+            "Dr. Keshvi Mohindru provided an exceptional dental implant treatment. The best dentist in Amritsar for sure! Highly recommended.",
+            "Got my smile designing done at Dr. Mohindru's clinic. Amazing results! The best dental clinic in Amritsar!",
+            "Dr. Ankur Mohindru is the best orthodontist in Amritsar. My Damon braces treatment went smoothly with fantastic results!",
+            "Top-notch dental care at Dr. Mohindru’s clinic. The best dental implant in Amritsar. Highly professional team!",
+            "Dr. Keshvi Mohindru transformed my smile with full mouth zirconia teeth. Best dental experience in Amritsar!"
+        ];
+       
+        function generateReview() {
+            const randomReview = reviews[Math.floor(Math.random() * reviews.length)];
+            document.getElementById("review-text").textContent = randomReview;
+        }
+       
+        function copyReview() {
+            const text = document.getElementById("review-text").textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Review copied! Now paste it on Google.");
+            });
+        }
+       
+        function redirectToGoogle() {
+            window.open("https://g.co/kgs/sm5ghCh", "_blank");
+        }
+       
+        window.onload = generateReview;
+    </script>
+</body>
+</html>
